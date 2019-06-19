@@ -615,6 +615,8 @@ def run_trials(X, nfactors,
         check_freq=10,
         epsilon=0.001,
         better_than_n_ago=5,
+        a=0.3,
+        c=0.3,
         dtype=np.float64,
         verbose=True,
         validation_data=None
@@ -663,6 +665,7 @@ def run_trials(X, nfactors,
                     check_freq=check_freq, epsilon=epsilon,
                     better_than_n_ago=better_than_n_ago,
                     verbose=verbose, dtype=dtype,
+                    a=a, c=c,
                     )
         model.fit(X, validation_data=validation_data)
 

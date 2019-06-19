@@ -76,6 +76,10 @@ def _parser():
     # Required model hyperparameter
     train.add_argument('-k', '--nfactors', type=int, required=True,
             help='Number of factors.')
+    train.add_argument('-a', '--a-theta-shape', type=float, default=0.3,
+            help='Shape of theta distribution (a) - close to 0 for sparsity.')
+    train.add_argument('-c', '--c-beta-shape', type=float, default=0.3,
+            help='Shape of beta distribution (c) - close to 0 for sparsity.')
 
     # training parameters
     train.add_argument('-t', '--ntrials',  type=int, default=1,
@@ -174,6 +178,7 @@ if __name__=='__main__':
                     min_iter=args.min_iter, max_iter=args.max_iter,
                     check_freq=args.check_freq, epsilon=args.epsilon,
                     better_than_n_ago=args.better_than_n_ago,
+                    a=args.a_theta_shape,c=args.c_beta_shape,
                     dtype=dtype, verbose=args.verbose, 
                     validation_data=vdata)
 
