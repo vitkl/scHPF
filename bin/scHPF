@@ -191,7 +191,7 @@ if __name__=='__main__':
         save_model(model, outname)
         # save Poisson log-likelihood
         pll = model.pois_llh(X = train)
-        np.savetxt(outname + '_pll', np.asarray(pll), delimiter=",")
+        np.savetxt(outname + '_pll', np.asarray([pll]), delimiter=",")
         print('\n')
 
     elif args.cmd == 'score':
