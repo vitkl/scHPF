@@ -189,6 +189,9 @@ if __name__=='__main__':
         outname = '{}scHPF_K{}_epsilon{}_{}trials.joblib'.format(
                 outprefix, args.nfactors, args.epsilon, args.ntrials)
         save_model(model, outname)
+        # save Poisson log-likelihood
+        pll = model.pois_llh(X = train)
+        numpy.savetxt(outname + '_pll', pll, delimiter=",")
         print('\n')
 
     elif args.cmd == 'score':
